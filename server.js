@@ -1,7 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
-
-
+const bookRoutes = require('./routes/bookRoutes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 
+app.use('/api',bookRoutes);// Use book Routes with prefix '/api'
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
